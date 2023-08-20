@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+:root {
+  --radius: 0.75rem;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background: black;
+  overflow-x: hidden;
+}
+/*
+=========================
+toggle button
+=========================
+*/
+.animation {
+  text-align: center;
+  margin-top: 30px;
+}
+.animation_text {
+  color: white;
+  display: inline-block;
+}
+.checkbox_1,
+.checkbox_2,
+.checkbox_3 {
+  opacity: 0;
+  height: 0px;
+  width: 0px;
+}
+.container {
+  position: relative;
+  width: 27px;
+  height: 15px;
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 34px;
+  line-height: 11px;
+  margin-left: 5px;
+}
+.container > .slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: white;
+  display: inline-block;
+  border-radius: 34px;
+  top: 0px;
+  left: 0px;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  width: 15px;
+  height: 15px;
+  background: gray;
+  border-radius: 50%;
+  transition: all 0.1s linear;
+}
+:is(.checkbox_1, .checkbox_2, .checkbox_3):checked + .slider {
+  background: rgb(0, 136, 255);
+}
+:has(.checkbox_1:checked) .content_1 {
+  animation: rotate 8s linear infinite;
+}
+:has(.checkbox_2:checked) .content_2 {
+  animation: rotate 8s linear infinite;
+}
+:has(.checkbox_3:checked) .content_3 {
+  animation: rotate 8s linear infinite;
+}
+:is(.checkbox_1, .checkbox_2, .checkbox_3):checked + .slider::before {
+  transform: translateX(12px);
+}
+/*
+======================
+card
+======================
+*/
+.card {
+  width: 250px;
+  height: 400px;
+  margin: calc(50vh - 249px) auto;
+  position: relative;
+  border-radius: var(--radius);
+}
+.content_1,
+.content_2,
+.content_3 {
+  height: 100%;
+  width: 100%;
+  background: white;
+  position: absolute;
+  transform-style: preserve-3d;
+  border-radius: var(--radius);
+  box-shadow: 0px 0px 10px 2px rgba(191, 25, 191, 0.86);
+}
+/* .content:hover {
+  animation: rotate 8s linear infinite;
+} */
+.front,
+.back {
+  background: white;
+  color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: var(--radius);
+}
+.back {
+  transform: rotateY(180deg);
+}
+.front {
+  z-index: 2;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.cut {
+  width: 40px;
+  height: 40px;
+  background: black;
+  border-radius: 50%;
+  margin: 0px auto;
+}
+.top {
+  transform: translateY(-50%);
+}
+.bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.border {
+  width: 100%;
+  height: 270px;
+  border-bottom: 2px dashed rgba(128, 128, 128, 0.3);
+}
+.info,
+.title {
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  word-spacing: 3.5px;
+}
+.front > .border {
+  padding: 20px;
+  padding-top: 0px;
+}
+.title {
+  font-size: 13px;
+  font-weight: 500;
+}
+.info {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+}
+.margin {
+  margin-top: 20px;
+}
+.logo {
+  width: 35px;
+  position: absolute;
+  top: 40px;
+  right: 27px;
+}
+.scancode {
+  display: inline-block;
+  width: 55px;
+  margin-top: 12px;
+  margin-left: -6px;
+}
+.scanner {
+  object-fit: cover;
+  width: 55px;
+}
+.profile_pic {
+  width: 50px;
+  display: inline-block;
+  margin: 24px 2px 0px 23px;
+}
+.profile_pic > img {
+  object-fit: cover;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.username_bottom {
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+.usercode {
+  font-size: 12px;
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 20px;
+}
+.align {
+  display: inline-block;
+  position: absolute;
+  bottom: 35px;
+}
+.image {
+  width: 110px;
+  display: inline-block;
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+img {
+  object-fit: cover;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateY(360deg);
+  }
+}
+.front_bottom {
+  letter-spacing: 0.3px;
+}
+.one {
+  width: 300vw;
+}
+.float,
+.float_2,
+.float_3 {
+  float: left;
+  width: 100vw;
+  transition: all 0.3s;
+}
+/*
+=======================
+sliding tab
+======================= 
+*/
+
+.tab_container {
+  position: relative;
+  display: inline-block;
+  width: 375px;
+  height: 40px;
+  box-shadow: 0px 0px 23px 0px rgba(191, 25, 191, 0.86);
+  border-radius: 43px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  margin-top: 20px;
+}
+.tab_slider {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  z-index: -1;
+}
+input[type="radio"] {
+  display: none;
+}
+.tab {
+  display: inline-block;
+  width: 32.5%;
+  height: 100%;
+  font-size: 20px;
+  text-align: center;
+  z-index: 2;
+  line-height: 6vh;
+}
+.tab_slider::before {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  content: "";
+  width: 33.3334%;
+  height: 100%;
+  background: rgb(144, 143, 143);
+  border-radius: 54px;
+  transition: all 0.3s;
+}
+:has(#pankaj:checked) .tab_slider::before {
+  transform: translateX(0%);
+}
+:has(#kunal:checked) .tab_slider::before {
+  transform: translateX(100%);
+}
+:has(#nishant:checked) .tab_slider::before {
+  transform: translateX(200%);
+}
+:has(#pankaj:checked) .float {
+  transform: translateX(0vw);
+}
+:has(#kunal:checked) .float_2 {
+  transform: translateX(-100vw);
+}
+:has(#kunal:checked) .float {
+  transform: translateX(-100vw);
+}
+:has(#nishant:checked) .float {
+  transform: translateX(-200vw);
+}
+:has(#nishant:checked) .float_2 {
+  transform: translateX(-200vw);
+}
+:has(#nishant:checked) .float_3 {
+  transform: translateX(-200vw);
+}
